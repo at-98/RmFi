@@ -12,9 +12,9 @@
     Open-Source Licenses: <a href="/credits">Credits</a>
 </p>
 <p>
-    Version: @if (System.IO.File.Exists("Remotely_Server.dll"))
+    Version: @if (System.IO.File.Exists("RmFi_Server.dll"))
     {
-        <span>@System.Diagnostics.FileVersionInfo.GetVersionInfo("Remotely_Server.dll").FileVersion.ToString()</span>
+        <span>@System.Diagnostics.FileVersionInfo.GetVersionInfo("RmFi_Server.dll").FileVersion.ToString()</span>
     }
     else
     {

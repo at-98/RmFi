@@ -30,7 +30,7 @@ namespace Server.Installer.Services
 
         public async Task PerformInstall(CliParams cliParams)
         {
-            var zipPath = Path.Combine(Path.GetTempPath(), "Remotely_Server.zip");
+            var zipPath = Path.Combine(Path.GetTempPath(), "RmFi_Server.zip");
 
             if (cliParams.UsePrebuiltPackage == true)
             {
