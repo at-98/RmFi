@@ -176,7 +176,7 @@
           "lib/netcoreapp3.0/System.Text.Json.dll": {}
         }
       },
-      "Remotely_Shared/1.0.0": {
+      "RmFi_Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -187,10 +187,10 @@
           "System.Text.Json": "5.0.2"
         },
         "compile": {
-          "bin/placeholder/Remotely_Shared.dll": {}
+          "bin/placeholder/RmFi_Shared.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Remotely_Shared.dll": {}
+          "bin/placeholder/RmFi_Shared.dll": {}
         }
       }
     }
@@ -602,7 +602,7 @@
         "version.txt"
       ]
     },
-    "Remotely_Shared/1.0.0": {
+    "RmFi_Shared/1.0.0": {
       "type": "project",
       "path": "../Shared/Shared.csproj",
       "msbuildProject": "../Shared/Shared.csproj"
@@ -611,7 +611,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Microsoft.Extensions.DependencyInjection >= 5.0.2",
-      "Remotely_Shared >= 1.0.0"
+      "RmFi_Shared >= 1.0.0"
     ]
   },
   "packageFolders": {

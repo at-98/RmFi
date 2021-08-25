@@ -1181,7 +1181,7 @@
           "lib/netstandard2.0/Tmds.DBus.dll": {}
         }
       },
-      "Remotely_Desktop.Core/1.0.0": {
+      "RmFi_Desktop.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -1192,18 +1192,18 @@
           "Microsoft.Extensions.Logging.Debug": "5.0.0",
           "Microsoft.Extensions.Logging.EventLog": "5.0.0",
           "Microsoft.MixedReality.WebRTC": "2.0.2",
-          "Remotely_Shared": "1.0.0",
+          "RmFi_Shared": "1.0.0",
           "System.Drawing.Common": "5.0.2",
           "System.IO.FileSystem.AccessControl": "5.0.0"
         },
         "compile": {
-          "bin/placeholder/Remotely_Desktop.Core.dll": {}
+          "bin/placeholder/RmFi_Desktop.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Remotely_Desktop.Core.dll": {}
+          "bin/placeholder/RmFi_Desktop.Core.dll": {}
         }
       },
-      "Remotely_Shared/1.0.0": {
+      "RmFi_Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -1214,10 +1214,10 @@
           "System.Text.Json": "5.0.2"
         },
         "compile": {
-          "bin/placeholder/Remotely_Shared.dll": {}
+          "bin/placeholder/RmFi_Shared.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Remotely_Shared.dll": {}
+          "bin/placeholder/RmFi_Shared.dll": {}
         }
       }
     }
@@ -3934,12 +3934,12 @@
         "tmds.dbus.nuspec"
       ]
     },
-    "Remotely_Desktop.Core/1.0.0": {
+    "RmFi_Desktop.Core/1.0.0": {
       "type": "project",
       "path": "../Desktop.Core/Desktop.Core.csproj",
       "msbuildProject": "../Desktop.Core/Desktop.Core.csproj"
     },
-    "Remotely_Shared/1.0.0": {
+    "RmFi_Shared/1.0.0": {
       "type": "project",
       "path": "../Shared/Shared.csproj",
       "msbuildProject": "../Shared/Shared.csproj"
@@ -3950,8 +3950,8 @@
       "Avalonia >= 0.10.6",
       "Avalonia.Desktop >= 0.10.6",
       "Avalonia.ReactiveUI >= 0.10.6",
-      "Remotely_Desktop.Core >= 1.0.0",
-      "Remotely_Shared >= 1.0.0"
+      "RmFi_Desktop.Core >= 1.0.0",
+      "RmFi_Shared >= 1.0.0"
     ]
   },
   "packageFolders": {

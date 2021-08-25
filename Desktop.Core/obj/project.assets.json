@@ -667,7 +667,7 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
-      "Remotely_Shared/1.0.0": {
+      "RmFi_Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -678,10 +678,10 @@
           "System.Text.Json": "5.0.2"
         },
         "compile": {
-          "bin/placeholder/Remotely_Shared.dll": {}
+          "bin/placeholder/RmFi_Shared.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Remotely_Shared.dll": {}
+          "bin/placeholder/RmFi_Shared.dll": {}
         }
       }
     }
@@ -2049,7 +2049,7 @@
         "version.txt"
       ]
     },
-    "Remotely_Shared/1.0.0": {
+    "RmFi_Shared/1.0.0": {
       "type": "project",
       "path": "../Shared/Shared.csproj",
       "msbuildProject": "../Shared/Shared.csproj"
@@ -2064,7 +2064,7 @@
       "Microsoft.Extensions.Logging.Debug >= 5.0.0",
       "Microsoft.Extensions.Logging.EventLog >= 5.0.0",
       "Microsoft.MixedReality.WebRTC >= 2.0.2",
-      "Remotely_Shared >= 1.0.0",
+      "RmFi_Shared >= 1.0.0",
       "System.Drawing.Common >= 5.0.2",
       "System.IO.FileSystem.AccessControl >= 5.0.0"
     ]
@@ -2077,7 +2077,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Desktop.Core\\Desktop.Core.csproj",
-      "projectName": "Remotely_Desktop.Core",
+      "projectName": "RmFi_Desktop.Core",
       "projectPath": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Desktop.Core\\Desktop.Core.csproj",
       "packagesPath": "C:\\Users\\HP ELITEBOOK 840G3\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Desktop.Core\\obj\\",

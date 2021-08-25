@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Desktop.Core\\Desktop.Core.csproj",
-        "projectName": "Remotely_Desktop.Core",
+        "projectName": "RmFi_Desktop.Core",
         "projectPath": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Desktop.Core\\Desktop.Core.csproj",
         "packagesPath": "C:\\Users\\HP ELITEBOOK 840G3\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Desktop.Core\\obj\\",
@@ -187,7 +187,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Shared\\Shared.csproj",
-        "projectName": "Remotely_Shared",
+        "projectName": "RmFi_Shared",
         "projectPath": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Shared\\Shared.csproj",
         "packagesPath": "C:\\Users\\HP ELITEBOOK 840G3\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Shared\\obj\\",

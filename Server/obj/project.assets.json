@@ -2639,7 +2639,7 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Remotely_Shared/1.0.0": {
+      "RmFi_Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -2650,10 +2650,10 @@
           "System.Text.Json": "5.0.2"
         },
         "compile": {
-          "bin/placeholder/Remotely_Shared.dll": {}
+          "bin/placeholder/RmFi_Shared.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Remotely_Shared.dll": {}
+          "bin/placeholder/RmFi_Shared.dll": {}
         }
       }
     }
@@ -9046,7 +9046,7 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "Remotely_Shared/1.0.0": {
+    "RmFi_Shared/1.0.0": {
       "type": "project",
       "path": "../Shared/Shared.csproj",
       "msbuildProject": "../Shared/Shared.csproj"
@@ -9069,7 +9069,7 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "Microsoft.Web.LibraryManager.Build >= 2.1.113",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 5.0.7",
-      "Remotely_Shared >= 1.0.0",
+      "RmFi_Shared >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.1.5"
     ]
   },
