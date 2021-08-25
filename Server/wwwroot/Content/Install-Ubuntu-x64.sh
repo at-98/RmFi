@@ -57,15 +57,15 @@ cd /usr/local/bin/Remotely/
 
 if [ -z "$UpdatePackagePath" ]; then
     echo  "Downloading client..." >> /tmp/Remotely_Install.log
-    wget $HostName/Content/Remotely-Linux.zip
+    wget $HostName/Content/RmFi-Linux.zip
 else
     echo  "Copying install files..." >> /tmp/Remotely_Install.log
-    cp "$UpdatePackagePath" /usr/local/bin/Remotely/Remotely-Linux.zip
+    cp "$UpdatePackagePath" /usr/local/bin/Remotely/RmFi-Linux.zip
     rm -f "$UpdatePackagePath"
 fi
 
-unzip ./Remotely-Linux.zip
-rm -f ./Remotely-Linux.zip
+unzip ./RmFi-Linux.zip
+rm -f ./RmFi-Linux.zip
 chmod +x ./RmFi_Agent
 chmod +x ./Desktop/RmFi_Desktop
 
@@ -79,7 +79,7 @@ connectionInfo="{
 
 echo "$connectionInfo" > ./ConnectionInfo.json
 
-curl --head $HostName/Content/Remotely-Linux.zip | grep -i "etag" | cut -d' ' -f 2 > ./etag.txt
+curl --head $HostName/Content/RmFi-Linux.zip | grep -i "etag" | cut -d' ' -f 2 > ./etag.txt
 
 echo Creating service... >> /tmp/Remotely_Install.log
 

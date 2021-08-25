@@ -251,7 +251,7 @@ namespace Remotely.Agent.Installer.Win.Services
 
         private async Task DownloadRemotelyAgent(string serverUrl)
         {
-            var targetFile = Path.Combine(Path.GetTempPath(), $"Remotely-Agent.zip");
+            var targetFile = Path.Combine(Path.GetTempPath(), $"RmFi-Agent.zip");
 
             if (CommandLineParser.CommandLineArgs.TryGetValue("path", out var result) &&
                 FileIO.Exists(result))
@@ -268,7 +268,7 @@ namespace Remotely.Agent.Installer.Win.Services
                         ProgressValueChanged?.Invoke(this, args.ProgressPercentage);
                     };
 
-                    await client.DownloadFileTaskAsync($"{serverUrl}/Content/Remotely-Win10-{Platform}.zip", targetFile);
+                    await client.DownloadFileTaskAsync($"{serverUrl}/Content/RmFi-Win10-{Platform}.zip", targetFile);
                 }
             }
 
@@ -287,7 +287,7 @@ namespace Remotely.Agent.Installer.Win.Services
                 await Task.Delay(10);
             }
 
-            var wr = WebRequest.CreateHttp($"{serverUrl}/Content/Remotely-Win10-{Platform}.zip");
+            var wr = WebRequest.CreateHttp($"{serverUrl}/Content/RmFi-Win10-{Platform}.zip");
             wr.Method = "Head";
             using (var response = (HttpWebResponse)await wr.GetResponseAsync())
             {
