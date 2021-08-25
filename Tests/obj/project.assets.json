@@ -5178,36 +5178,6 @@
           "Microsoft.WindowsDesktop.App"
         ]
       },
-      "Remotely_Server/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "MailKit": "2.14.0",
-          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "5.0.8",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.8",
-          "Microsoft.AspNetCore.Identity.UI": "5.0.8",
-          "Microsoft.AspNetCore.SignalR.Protocols.MessagePack": "5.0.8",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.8",
-          "Microsoft.EntityFrameworkCore.Sqlite": "5.0.8",
-          "Microsoft.Extensions.Logging.Debug": "5.0.0",
-          "Microsoft.Extensions.Logging.EventLog": "5.0.0",
-          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.10.13",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
-          "Microsoft.Web.LibraryManager.Build": "2.1.113",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.7",
-          "RmFi_Shared": "1.0.0",
-          "Swashbuckle.AspNetCore": "6.1.5"
-        },
-        "compile": {
-          "bin/placeholder/Remotely_Server.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Remotely_Server.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
       "RmFi_Agent/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -5252,6 +5222,36 @@
         "runtime": {
           "bin/placeholder/RmFi_Desktop.Core.dll": {}
         }
+      },
+      "RmFi_Server/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "MailKit": "2.14.0",
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "5.0.8",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.8",
+          "Microsoft.AspNetCore.Identity.UI": "5.0.8",
+          "Microsoft.AspNetCore.SignalR.Protocols.MessagePack": "5.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.8",
+          "Microsoft.EntityFrameworkCore.Sqlite": "5.0.8",
+          "Microsoft.Extensions.Logging.Debug": "5.0.0",
+          "Microsoft.Extensions.Logging.EventLog": "5.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.10.13",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
+          "Microsoft.Web.LibraryManager.Build": "2.1.113",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.7",
+          "RmFi_Shared": "1.0.0",
+          "Swashbuckle.AspNetCore": "6.1.5"
+        },
+        "compile": {
+          "bin/placeholder/RmFi_Server.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RmFi_Server.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "RmFi_Shared/1.0.0": {
         "type": "project",
@@ -15846,11 +15846,6 @@
       "path": "../Desktop.Win/Desktop.Win.csproj",
       "msbuildProject": "../Desktop.Win/Desktop.Win.csproj"
     },
-    "Remotely_Server/1.0.0": {
-      "type": "project",
-      "path": "../Server/Server.csproj",
-      "msbuildProject": "../Server/Server.csproj"
-    },
     "RmFi_Agent/1.0.0": {
       "type": "project",
       "path": "../Agent/Agent.csproj",
@@ -15860,6 +15855,11 @@
       "type": "project",
       "path": "../Desktop.Core/Desktop.Core.csproj",
       "msbuildProject": "../Desktop.Core/Desktop.Core.csproj"
+    },
+    "RmFi_Server/1.0.0": {
+      "type": "project",
+      "path": "../Server/Server.csproj",
+      "msbuildProject": "../Server/Server.csproj"
     },
     "RmFi_Shared/1.0.0": {
       "type": "project",
@@ -15876,9 +15876,9 @@
       "Microsoft.NET.Test.Sdk >= 16.10.0",
       "Moq >= 4.16.1",
       "Remotely Desktop >= 1.0.0",
-      "Remotely_Server >= 1.0.0",
       "RmFi_Agent >= 1.0.0",
-      "RmFi_Desktop.Core >= 1.0.0"
+      "RmFi_Desktop.Core >= 1.0.0",
+      "RmFi_Server >= 1.0.0"
     ]
   },
   "packageFolders": {
