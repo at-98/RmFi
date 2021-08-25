@@ -58,7 +58,7 @@ namespace Remotely.Agent.Installer.Win {
             
             #line default
             #line hidden
-            System.Uri resourceLocater = new System.Uri("/RmFi_Installer;component/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Remotely_Installer;component/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
