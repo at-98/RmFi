@@ -8793,7 +8793,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Agent\\Agent.csproj",
-      "projectName": "Remotely_Agent",
+      "projectName": "RmFi_Agent",
       "projectPath": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Agent\\Agent.csproj",
       "packagesPath": "C:\\Users\\HP ELITEBOOK 840G3\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Agent\\obj\\",

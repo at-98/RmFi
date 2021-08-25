@@ -90,7 +90,7 @@ plistFile="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/bin/dotnet</string>
-        <string>/usr/local/bin/Remotely/Remotely_Agent.dll</string>
+        <string>/usr/local/bin/Remotely/RmFi_Agent.dll</string>
     </array>
     <key>KeepAlive</key>
     <true/>

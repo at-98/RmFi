@@ -3414,7 +3414,7 @@
           "Microsoft.WindowsDesktop.App"
         ]
       },
-      "Remotely_Agent/1.0.0": {
+      "RmFi_Agent/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -3431,10 +3431,10 @@
           "System.ServiceProcess.ServiceController": "5.0.0"
         },
         "compile": {
-          "bin/placeholder/Remotely_Agent.dll": {}
+          "bin/placeholder/RmFi_Agent.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Remotely_Agent.dll": {}
+          "bin/placeholder/RmFi_Agent.dll": {}
         }
       },
       "RmFi_Desktop.Core/1.0.0": {
@@ -10599,7 +10599,7 @@
       "path": "../Desktop.Win/Desktop.Win.csproj",
       "msbuildProject": "../Desktop.Win/Desktop.Win.csproj"
     },
-    "Remotely_Agent/1.0.0": {
+    "RmFi_Agent/1.0.0": {
       "type": "project",
       "path": "../Agent/Agent.csproj",
       "msbuildProject": "../Agent/Agent.csproj"
@@ -10619,7 +10619,7 @@
     "net5.0-windows7.0": [
       "Microsoft.AspNetCore.SignalR.Client >= 5.0.8",
       "Remotely Desktop >= 1.0.0",
-      "Remotely_Agent >= 1.0.0",
+      "RmFi_Agent >= 1.0.0",
       "RmFi_Shared >= 1.0.0"
     ]
   },
