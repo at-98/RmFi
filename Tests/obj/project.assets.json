@@ -15889,7 +15889,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Tests\\Tests.csproj",
-      "projectName": "Remotely_Tests",
+      "projectName": "RmFi_Tests",
       "projectPath": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Tests\\Tests.csproj",
       "packagesPath": "C:\\Users\\HP ELITEBOOK 840G3\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\HP ELITEBOOK 840G3\\Source\\Repos\\aruntomy98\\RmFi\\Tests\\obj\\",
