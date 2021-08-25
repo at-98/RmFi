@@ -91,7 +91,7 @@ namespace Remotely.Agent.Installer.Win.Services
 
                 StopService();
 
-                ProcessEx.StartHidden("cmd.exe", "/c sc delete Remotely_Service").WaitForExit();
+                ProcessEx.StartHidden("cmd.exe", "/c sc delete RMFi_Service").WaitForExit();
 
                 await StopProcesses();
 
@@ -367,7 +367,7 @@ namespace Remotely.Agent.Installer.Win.Services
         {
             Logger.Write("Installing service.");
             ProgressMessageChanged?.Invoke(this, "Installing Remotely service.");
-            var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "Remotely_Service");
+            var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "RMFi_Service");
             if (serv == null)
             {
                 var command = new string[] { "/assemblypath=" + Path.Combine(InstallPath, "RmFi_Agent.exe") };
@@ -377,7 +377,7 @@ namespace Remotely.Agent.Installer.Win.Services
                     Context = context,
                     DisplayName = "Remotely Service",
                     Description = "Background service that maintains a connection to the Remotely server.  The service is used for remote support and maintenance by this computer's administrators.",
-                    ServiceName = "Remotely_Service",
+                    ServiceName = "RMFi_Service",
                     StartType = ServiceStartMode.Automatic,
                     DelayedAutoStart = true,
                     Parent = new ServiceProcessInstaller()
@@ -386,9 +386,9 @@ namespace Remotely.Agent.Installer.Win.Services
                 var state = new System.Collections.Specialized.ListDictionary();
                 serviceInstaller.Install(state);
                 Logger.Write("Service installed.");
-                serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "Remotely_Service");
+                serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "RMFi_Service");
 
-                ProcessEx.StartHidden("cmd.exe", "/c sc.exe failure \"Remotely_Service\" reset= 5 actions= restart/5000");
+                ProcessEx.StartHidden("cmd.exe", "/c sc.exe failure \"RMFi_Service\" reset= 5 actions= restart/5000");
             }
             if (serv.Status != ServiceControllerStatus.Running)
             {
@@ -407,7 +407,7 @@ namespace Remotely.Agent.Installer.Win.Services
                     Logger.Write("Restoring backup.");
                     ClearInstallDirectory();
                     ZipFile.ExtractToDirectory(backupPath, InstallPath);
-                    var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "Remotely_Service");
+                    var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "RMFi_Service");
                     if (serv?.Status != ServiceControllerStatus.Running)
                     {
                         serv?.Start();
@@ -436,7 +436,7 @@ namespace Remotely.Agent.Installer.Win.Services
         {
             try
             {
-                var remotelyService = ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == "Remotely_Service");
+                var remotelyService = ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == "RMFi_Service");
                 if (remotelyService != null)
                 {
                     Logger.Write("Stopping existing Remotely service.");
