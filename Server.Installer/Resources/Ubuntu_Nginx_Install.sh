@@ -25,7 +25,7 @@ if [ -z "$HostName" ]; then
     read -p "Enter server host (e.g. remotely.yourdomainname.com): " HostName
 fi
 
-chmod +x "$AppRoot/Remotely_Server"
+chmod +x "$AppRoot/RmFi_Server"
 
 echo "Using $AppRoot as the Remotely website's content directory."
 
@@ -55,7 +55,7 @@ apt-get -y install libgdiplus
 # Set permissions on Remotely files.
 setfacl -R -m u:www-data:rwx $AppRoot
 chown -R "$USER":www-data $AppRoot
-chmod +x "$AppRoot/Remotely_Server"
+chmod +x "$AppRoot/RmFi_Server"
 
 
 # Install Nginx
@@ -144,7 +144,7 @@ Description=Remotely Server
 
 [Service]
 WorkingDirectory=$AppRoot
-ExecStart=/usr/bin/dotnet $AppRoot/Remotely_Server.dll
+ExecStart=/usr/bin/dotnet $AppRoot/RmFi_Server.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10

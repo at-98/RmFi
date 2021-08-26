@@ -20,4 +20,4 @@ fi
 ln -s "$AppSettingsVolume" "$AppSettingsWww"
 
 echo "Starting Remotely server."
-exec /usr/bin/dotnet /var/www/remotely/Remotely_Server.dll
+exec /usr/bin/dotnet /var/www/remotely/RmFi_Server.dll
