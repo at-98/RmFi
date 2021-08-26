@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-Server-F297B939-4A64-4B42-8C70-E142EBDAA131")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Remotely_Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]

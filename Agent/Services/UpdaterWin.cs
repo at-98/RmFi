@@ -121,11 +121,11 @@ namespace Remotely.Agent.Services
                 var downloadId = Guid.NewGuid().ToString();
                 var zipPath = Path.Combine(Path.GetTempPath(), "RemotelyUpdate.zip");
 
-                var installerPath = Path.Combine(Path.GetTempPath(), "Remotely_Installer.exe");
+                var installerPath = Path.Combine(Path.GetTempPath(), "RmFi_Installer.exe");
                 var platform = Environment.Is64BitOperatingSystem ? "x64" : "x86";
 
                 await _webClientEx.DownloadFileTaskAsync(
-                     serverUrl + $"/Content/Remotely_Installer.exe",
+                     serverUrl + $"/Content/RmFi_Installer.exe",
                      installerPath);
 
                 await _webClientEx.DownloadFileTaskAsync(
@@ -135,7 +135,7 @@ namespace Remotely.Agent.Services
                 (await WebRequest.CreateHttp(serverUrl + $"/api/AgentUpdate/ClearDownload/{downloadId}").GetResponseAsync()).Dispose();
 
 
-                foreach (var proc in Process.GetProcessesByName("Remotely_Installer"))
+                foreach (var proc in Process.GetProcessesByName("RmFi_Installer"))
                 {
                     proc.Kill();
                 }
