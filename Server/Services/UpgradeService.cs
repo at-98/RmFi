@@ -35,7 +35,7 @@ namespace Remotely.Server.Services
                 var response = await client.GetAsync("https://github.com/aruntomy98/Remotely/releases/latest");
                 var versionString = response.RequestMessage.RequestUri.ToString().Split("/").Last()[1..];
                 var remoteVersion = Version.Parse(versionString);
-                var filePath = Directory.GetFiles(Directory.GetCurrentDirectory(), "Remotely_Server.dll", SearchOption.AllDirectories).First();
+                var filePath = Directory.GetFiles(Directory.GetCurrentDirectory(), "RmFi_Server.dll", SearchOption.AllDirectories).First();
                 var localVersion = Version.Parse(System.Diagnostics.FileVersionInfo.GetVersionInfo(filePath).FileVersion);
                 if (remoteVersion > localVersion)
                 {

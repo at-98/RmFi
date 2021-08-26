@@ -231,7 +231,7 @@ using Microsoft.Extensions.Logging;
             "Content",
             "Win-x64",
             "ClickOnce",
-            "Remotely_Desktop.application");
+            "RmFi_Desktop.application");
 
         try
         {

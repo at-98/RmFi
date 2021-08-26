@@ -56,8 +56,8 @@ fi
 
 unzip ./Remotely-Linux.zip
 rm -f ./Remotely-Linux.zip
-chmod +x ./Remotely_Agent
-chmod +x ./Desktop/Remotely_Desktop
+chmod +x ./RmFi_Agent
+chmod +x ./Desktop/RmFi_Desktop
 
 
 connectionInfo="{
@@ -78,7 +78,7 @@ Description=The Remotely agent used for remote access.
 
 [Service]
 WorkingDirectory=/usr/local/bin/Remotely/
-ExecStart=/usr/local/bin/Remotely/Remotely_Agent
+ExecStart=/usr/local/bin/Remotely/RmFi_Agent
 Restart=always
 StartLimitIntervalSec=0
 RestartSec=10

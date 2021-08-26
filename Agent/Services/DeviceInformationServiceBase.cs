@@ -73,9 +73,9 @@ namespace Remotely.Agent.Services
         {
             try
             {
-                if (File.Exists("Remotely_Agent.dll"))
+                if (File.Exists("RmFi_Agent.dll"))
                 {
-                    return FileVersionInfo.GetVersionInfo("Remotely_Agent.dll").FileVersion.ToString().Trim();
+                    return FileVersionInfo.GetVersionInfo("RmFi_Agent.dll").FileVersion.ToString().Trim();
                 }
             }
             catch (Exception ex)

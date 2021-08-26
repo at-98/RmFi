@@ -13,10 +13,10 @@ namespace Remotely.Shared.Utilities
                 switch (Platform)
                 {
                     case Platform.Windows:
-                        return "Remotely_Agent.exe";
+                        return "RmFi_Agent.exe";
                     case Platform.Linux:
                     case Platform.MacOS:
-                        return "Remotely_Agent";
+                        return "RmFi_Agent";
                     default:
                         throw new PlatformNotSupportedException();
                 }
@@ -30,10 +30,10 @@ namespace Remotely.Shared.Utilities
                 switch (Platform)
                 {
                     case Platform.Windows:
-                        return "Remotely_Desktop.exe";
+                        return "RmFi_Desktop.exe";
                     case Platform.Linux:
                     case Platform.MacOS:
-                        return "Remotely_Desktop";
+                        return "RmFi_Desktop";
                     default:
                         throw new PlatformNotSupportedException();
                 }

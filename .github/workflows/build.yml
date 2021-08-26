@@ -26,66 +26,14 @@ on:
       serverUrl:
         description: 'Server URL'     
         required: true
+        default: "https://app.remotely.one"
       rid:
         description: 'Server Runtime Identifier'     
         required: false
-        default: "linux-x64"
+        default: ""
 
 jobs:
 
-  build-mac:
-  
-    runs-on: macos-10.15
-  
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Install .NET Core
-        uses: actions/setup-dotnet@v1.8.0
-        
-      - name: Setup NuGet.exe for use with actions
-        uses: NuGet/setup-nuget@v1.0.5
-
-      - name: Set current version
-        shell: pwsh
-        run: |
-          $VersionString = git show -s --format=%ci
-          $VersionDate = [DateTimeOffset]::Parse($VersionString)
-
-          $Year = $VersionDate.Year.ToString()
-          $Month = $VersionDate.Month.ToString().PadLeft(2, "0")
-          $Day = $VersionDate.Day.ToString().PadLeft(2, "0")
-          $Hour = $VersionDate.Hour.ToString().PadLeft(2, "0")
-          $Minute = $VersionDate.Minute.ToString().PadLeft(2, "0")
-          $CurrentVersion = "$Year.$Month.$Day.$Hour$Minute"
-
-          echo "CurrentVersion=$CurrentVersion" >> $env:GITHUB_ENV
-
-          Write-Host "Setting current version to $CurrentVersion."
-
-      - name: Publish macOS x64 Agent
-        shell: pwsh
-        run: |
-          $VersionString = git show -s --format=%ci
-          $VersionDate = [DateTimeOffset]::Parse($VersionString)
-
-          $Year = $VersionDate.Year.ToString()
-          $Month = $VersionDate.Month.ToString().PadLeft(2, "0")
-          $Day = $VersionDate.Day.ToString().PadLeft(2, "0")
-          $Hour = $VersionDate.Hour.ToString().PadLeft(2, "0")
-          $Minute = $VersionDate.Minute.ToString().PadLeft(2, "0")
-          $CurrentVersion = "$Year.$Month.$Day.$Hour$Minute"
-          
-          Write-Host "Publishing agent with version $CurrentVersion"
-          dotnet publish /p:Version=$CurrentVersion /p:FileVersion=$CurrentVersion --runtime osx-x64 --configuration Release --output "./Agent/bin/publish/" "./Agent/"
-          Compress-Archive -Path "./Agent/bin/publish/*" -DestinationPath "./Agent/bin/Remotely-MacOS-x64.zip" -Force
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v2
-        with:
-          path: ./Agent/bin/Remotely-MacOS-x64.zip
-          name: Mac-Agent-x64
      
   build-windows:
 
@@ -107,7 +55,7 @@ jobs:
       with:
         # Comment out the below 'repository' line if you want to build from
         # your fork instead of the author's.
-        repository: lucent-sea/Remotely
+        repository: aruntomy98/RmFi
         fetch-depth: 0
 
     # Test the Server URL to make sure it's valid
@@ -169,11 +117,7 @@ jobs:
         Write-Host "Setting current version to $CurrentVersion."
         
         
-    - name: Download macOS x64 Agent
-      uses: actions/download-artifact@v2
-      with:
-        name: Mac-Agent-x64
-        path: ./Server/wwwroot/Content/
+    
 
     # Run the Publish script to build clients and server.
     - name: Run Publish script
@@ -186,7 +130,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         path: ./publish/
-        name: Server
+        name: RmFi_Server
     
 
     # Remove the pfx
