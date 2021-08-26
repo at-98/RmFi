@@ -52,15 +52,15 @@ cd /usr/local/bin/Remotely/
 
 if [ -z "$UpdatePackagePath" ]; then
     echo  "Downloading client..." >> /tmp/Remotely_Install.log
-    curl $HostName/Content/RmFi-MacOS-arm64.zip --output /usr/local/bin/Remotely/RmFi-MacOS-arm64.zip
+    curl $HostName/Content/Remotely-MacOS-arm64.zip --output /usr/local/bin/Remotely/Remotely-MacOS-arm64.zip
 else
     echo  "Copying install files..." >> /tmp/Remotely_Install.log
-    cp "$UpdatePackagePath" /usr/local/bin/Remotely/RmFi-MacOS-arm64.zip
+    cp "$UpdatePackagePath" /usr/local/bin/Remotely/Remotely-MacOS-arm64.zip
     rm -f "$UpdatePackagePath"
 fi
 
-unzip -o ./RmFi-MacOS-arm64.zip
-rm -f ./RmFi-MacOS-arm64.zip
+unzip -o ./Remotely-MacOS-arm64.zip
+rm -f ./Remotely-MacOS-arm64.zip
 
 
 connectionInfo="{
@@ -72,7 +72,7 @@ connectionInfo="{
 
 echo "$connectionInfo" > ./ConnectionInfo.json
 
-curl --head $HostName/Content/RmFi-MacOS-arm64.zip | grep -i "etag" | cut -d' ' -f 2 > ./etag.txt
+curl --head $HostName/Content/Remotely-MacOS-arm64.zip | grep -i "etag" | cut -d' ' -f 2 > ./etag.txt
 
 
 plistFile="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -84,7 +84,7 @@ plistFile="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/bin/dotnet</string>
-        <string>/usr/local/bin/Remotely/RmFi_Agent.dll</string>
+        <string>/usr/local/bin/Remotely/Remotely_Agent.dll</string>
     </array>
     <key>KeepAlive</key>
     <true/>

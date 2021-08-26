@@ -25,7 +25,7 @@ if [ -z "$HostName" ]; then
     read -p "Enter server host (e.g. remotely.yourdomainname.com): " HostName
 fi
 
-chmod +x "$AppRoot/RmFi_Server"
+chmod +x "$AppRoot/Remotely_Server"
 
 echo "Using $AppRoot as the Remotely website's content directory."
 
@@ -77,7 +77,7 @@ Description=Remotely Server
 
 [Service]
 WorkingDirectory=$AppRoot
-ExecStart=/usr/bin/dotnet $AppRoot/RmFi_Server.dll
+ExecStart=/usr/bin/dotnet $AppRoot/Remotely_Server.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10

@@ -60,7 +60,7 @@ namespace Remotely.Agent.Services
                 var serverUrl = _configService.GetConnectionInfo().Host;
 
                 var platform = Environment.Is64BitOperatingSystem ? "x64" : "x86";
-                var fileUrl = serverUrl + $"/Content/RmFi-Win10-{platform}.zip";
+                var fileUrl = serverUrl + $"/Content/Remotely-Win10-{platform}.zip";
 
                 var lastEtag = string.Empty;
 

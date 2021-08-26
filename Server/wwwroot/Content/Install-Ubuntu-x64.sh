@@ -57,17 +57,17 @@ cd /usr/local/bin/Remotely/
 
 if [ -z "$UpdatePackagePath" ]; then
     echo  "Downloading client..." >> /tmp/Remotely_Install.log
-    wget $HostName/Content/RmFi-Linux.zip
+    wget $HostName/Content/Remotely-Linux.zip
 else
     echo  "Copying install files..." >> /tmp/Remotely_Install.log
-    cp "$UpdatePackagePath" /usr/local/bin/Remotely/RmFi-Linux.zip
+    cp "$UpdatePackagePath" /usr/local/bin/Remotely/Remotely-Linux.zip
     rm -f "$UpdatePackagePath"
 fi
 
-unzip ./RmFi-Linux.zip
-rm -f ./RmFi-Linux.zip
-chmod +x ./RmFi_Agent
-chmod +x ./Desktop/RmFi_Desktop
+unzip ./Remotely-Linux.zip
+rm -f ./Remotely-Linux.zip
+chmod +x ./Remotely_Agent
+chmod +x ./Desktop/Remotely_Desktop
 
 
 connectionInfo="{
@@ -79,7 +79,7 @@ connectionInfo="{
 
 echo "$connectionInfo" > ./ConnectionInfo.json
 
-curl --head $HostName/Content/RmFi-Linux.zip | grep -i "etag" | cut -d' ' -f 2 > ./etag.txt
+curl --head $HostName/Content/Remotely-Linux.zip | grep -i "etag" | cut -d' ' -f 2 > ./etag.txt
 
 echo Creating service... >> /tmp/Remotely_Install.log
 
@@ -88,7 +88,7 @@ Description=The Remotely agent used for remote access.
 
 [Service]
 WorkingDirectory=/usr/local/bin/Remotely/
-ExecStart=/usr/local/bin/Remotely/RmFi_Agent
+ExecStart=/usr/local/bin/Remotely/Remotely_Agent
 Restart=always
 StartLimitIntervalSec=0
 RestartSec=10

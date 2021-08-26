@@ -41,7 +41,7 @@ namespace Remotely.Desktop.XPlat.ViewModels
             var initialDir = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             if (!Directory.Exists(initialDir))
             {
-                initialDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "RmFi_Shared")).FullName;
+                initialDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "Remotely_Shared")).FullName;
             }
 
             var ofd = new OpenFileDialog

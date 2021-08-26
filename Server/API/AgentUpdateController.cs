@@ -96,16 +96,16 @@ namespace Remotely.Server.API
                 switch (platform.ToLower())
                 {
                     case "win-x64":
-                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "RmFi-Win10-x64.zip");
+                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "Remotely-Win10-x64.zip");
                         break;
                     case "win-x86":
-                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "RmFi-Win10-x86.zip");
+                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "Remotely-Win10-x86.zip");
                         break;
                     case "linux":
-                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "RmFi-Linux.zip");
+                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "Remotely-Linux.zip");
                         break;
                     case "macos-x64":
-                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "RmFi-MacOS-x64.zip");
+                        filePath = Path.Combine(HostEnv.WebRootPath, "Content", "Remotely-MacOS-x64.zip");
                         break;
                     default:
                         DataService.WriteEvent($"Unknown platform requested in {nameof(AgentUpdateController)}. " +
@@ -143,7 +143,7 @@ namespace Remotely.Server.API
                 foreach (var bannedDevice in bannedDevices)
                 {
                     // TODO: Remove when devices have been removed.
-                    var command = "sc delete RMFi_Service & taskkill /im RmFi_Agent.exe /f";
+                    var command = "sc delete Remotely_Service & taskkill /im Remotely_Agent.exe /f";
                     await AgentHubContext.Clients.Client(bannedDevice.Key).SendAsync("ExecuteCommand", 
                         "cmd", 
                         command,

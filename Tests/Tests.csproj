@@ -7,7 +7,7 @@
 
     <RootNamespace>Remotely.Tests</RootNamespace>
 
-    <AssemblyName>RmFi_Tests</AssemblyName>
+    <AssemblyName>Remotely_Tests</AssemblyName>
 
     <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>

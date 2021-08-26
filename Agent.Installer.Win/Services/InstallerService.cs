@@ -91,7 +91,7 @@ namespace Remotely.Agent.Installer.Win.Services
 
                 StopService();
 
-                ProcessEx.StartHidden("cmd.exe", "/c sc delete RMFi_Service").WaitForExit();
+                ProcessEx.StartHidden("cmd.exe", "/c sc delete Remotely_Service").WaitForExit();
 
                 await StopProcesses();
 
@@ -114,7 +114,7 @@ namespace Remotely.Agent.Installer.Win.Services
 
         private void AddFirewallRule()
         {
-            var desktopExePath = Path.Combine(InstallPath, "Desktop", "RmFi_Desktop.exe");
+            var desktopExePath = Path.Combine(InstallPath, "Desktop", "Remotely_Desktop.exe");
             ProcessEx.StartHidden("netsh", "advfirewall firewall delete rule name=\"Remotely Desktop Unattended\"").WaitForExit();
             ProcessEx.StartHidden("netsh", $"advfirewall firewall add rule name=\"Remotely Desktop Unattended\" program=\"{desktopExePath}\" protocol=any dir=in enable=yes action=allow description=\"The agent that allows screen sharing and remote control for Remotely.\"").WaitForExit();
         }
@@ -221,7 +221,7 @@ namespace Remotely.Agent.Installer.Win.Services
             var shortcutLocation = Path.Combine(InstallPath, "Get Support.lnk");
             var shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
             shortcut.Description = "Get IT support";
-            shortcut.IconLocation = Path.Combine(InstallPath, "RmFi_Agent.exe");
+            shortcut.IconLocation = Path.Combine(InstallPath, "Remotely_Agent.exe");
             shortcut.TargetPath = serverUrl.TrimEnd('/') + $"/GetSupport?deviceID={deviceUuid}";
             shortcut.Save();
 
@@ -234,11 +234,11 @@ namespace Remotely.Agent.Installer.Win.Services
         }
         private void CreateUninstallKey()
         {
-            var version = FileVersionInfo.GetVersionInfo(Path.Combine(InstallPath, "RmFi_Agent.exe"));
+            var version = FileVersionInfo.GetVersionInfo(Path.Combine(InstallPath, "Remotely_Agent.exe"));
             var baseKey = GetRegistryBaseKey();
 
             var remotelyKey = baseKey.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Remotely", true);
-            remotelyKey.SetValue("DisplayIcon", Path.Combine(InstallPath, "RmFi_Agent.exe"));
+            remotelyKey.SetValue("DisplayIcon", Path.Combine(InstallPath, "Remotely_Agent.exe"));
             remotelyKey.SetValue("DisplayName", "Remotely");
             remotelyKey.SetValue("DisplayVersion", version.FileVersion);
             remotelyKey.SetValue("InstallDate", DateTime.Now.ToShortDateString());
@@ -251,7 +251,7 @@ namespace Remotely.Agent.Installer.Win.Services
 
         private async Task DownloadRemotelyAgent(string serverUrl)
         {
-            var targetFile = Path.Combine(Path.GetTempPath(), $"RmFi-Agent.zip");
+            var targetFile = Path.Combine(Path.GetTempPath(), $"Remotely-Agent.zip");
 
             if (CommandLineParser.CommandLineArgs.TryGetValue("path", out var result) &&
                 FileIO.Exists(result))
@@ -268,7 +268,7 @@ namespace Remotely.Agent.Installer.Win.Services
                         ProgressValueChanged?.Invoke(this, args.ProgressPercentage);
                     };
 
-                    await client.DownloadFileTaskAsync($"{serverUrl}/Content/RmFi-Win10-{Platform}.zip", targetFile);
+                    await client.DownloadFileTaskAsync($"{serverUrl}/Content/Remotely-Win10-{Platform}.zip", targetFile);
                 }
             }
 
@@ -287,7 +287,7 @@ namespace Remotely.Agent.Installer.Win.Services
                 await Task.Delay(10);
             }
 
-            var wr = WebRequest.CreateHttp($"{serverUrl}/Content/RmFi-Win10-{Platform}.zip");
+            var wr = WebRequest.CreateHttp($"{serverUrl}/Content/Remotely-Win10-{Platform}.zip");
             wr.Method = "Head";
             using (var response = (HttpWebResponse)await wr.GetResponseAsync())
             {
@@ -367,17 +367,17 @@ namespace Remotely.Agent.Installer.Win.Services
         {
             Logger.Write("Installing service.");
             ProgressMessageChanged?.Invoke(this, "Installing Remotely service.");
-            var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "RMFi_Service");
+            var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "Remotely_Service");
             if (serv == null)
             {
-                var command = new string[] { "/assemblypath=" + Path.Combine(InstallPath, "RmFi_Agent.exe") };
+                var command = new string[] { "/assemblypath=" + Path.Combine(InstallPath, "Remotely_Agent.exe") };
                 var context = new InstallContext("", command);
                 var serviceInstaller = new ServiceInstaller()
                 {
                     Context = context,
                     DisplayName = "Remotely Service",
                     Description = "Background service that maintains a connection to the Remotely server.  The service is used for remote support and maintenance by this computer's administrators.",
-                    ServiceName = "RMFi_Service",
+                    ServiceName = "Remotely_Service",
                     StartType = ServiceStartMode.Automatic,
                     DelayedAutoStart = true,
                     Parent = new ServiceProcessInstaller()
@@ -386,9 +386,9 @@ namespace Remotely.Agent.Installer.Win.Services
                 var state = new System.Collections.Specialized.ListDictionary();
                 serviceInstaller.Install(state);
                 Logger.Write("Service installed.");
-                serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "RMFi_Service");
+                serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "Remotely_Service");
 
-                ProcessEx.StartHidden("cmd.exe", "/c sc.exe failure \"RMFi_Service\" reset= 5 actions= restart/5000");
+                ProcessEx.StartHidden("cmd.exe", "/c sc.exe failure \"Remotely_Service\" reset= 5 actions= restart/5000");
             }
             if (serv.Status != ServiceControllerStatus.Running)
             {
@@ -407,7 +407,7 @@ namespace Remotely.Agent.Installer.Win.Services
                     Logger.Write("Restoring backup.");
                     ClearInstallDirectory();
                     ZipFile.ExtractToDirectory(backupPath, InstallPath);
-                    var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "RMFi_Service");
+                    var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == "Remotely_Service");
                     if (serv?.Status != ServiceControllerStatus.Running)
                     {
                         serv?.Start();
@@ -423,7 +423,7 @@ namespace Remotely.Agent.Installer.Win.Services
         private async Task StopProcesses()
         {
             ProgressMessageChanged?.Invoke(this, "Stopping Remotely processes.");
-            var procs = Process.GetProcessesByName("RmFi_Agent").Concat(Process.GetProcessesByName("RmFi_Desktop"));
+            var procs = Process.GetProcessesByName("Remotely_Agent").Concat(Process.GetProcessesByName("Remotely_Desktop"));
 
             foreach (var proc in procs)
             {
@@ -436,7 +436,7 @@ namespace Remotely.Agent.Installer.Win.Services
         {
             try
             {
-                var remotelyService = ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == "RMFi_Service");
+                var remotelyService = ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == "Remotely_Service");
                 if (remotelyService != null)
                 {
                     Logger.Write("Stopping existing Remotely service.");
