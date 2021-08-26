@@ -57,7 +57,7 @@ fi
 unzip ./Remotely-Linux.zip
 rm -f ./Remotely-Linux.zip
 chmod +x ./Remotely_Agent
-chmod +x ./Desktop/Remotely_Desktop
+chmod +x ./Desktop/RmFi_Desktop
 
 
 connectionInfo="{

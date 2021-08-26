@@ -114,7 +114,7 @@ namespace Remotely.Agent.Installer.Win.Services
 
         private void AddFirewallRule()
         {
-            var desktopExePath = Path.Combine(InstallPath, "Desktop", "Remotely_Desktop.exe");
+            var desktopExePath = Path.Combine(InstallPath, "Desktop", "RmFi_Desktop.exe");
             ProcessEx.StartHidden("netsh", "advfirewall firewall delete rule name=\"Remotely Desktop Unattended\"").WaitForExit();
             ProcessEx.StartHidden("netsh", $"advfirewall firewall add rule name=\"Remotely Desktop Unattended\" program=\"{desktopExePath}\" protocol=any dir=in enable=yes action=allow description=\"The agent that allows screen sharing and remote control for Remotely.\"").WaitForExit();
         }
@@ -423,7 +423,7 @@ namespace Remotely.Agent.Installer.Win.Services
         private async Task StopProcesses()
         {
             ProgressMessageChanged?.Invoke(this, "Stopping Remotely processes.");
-            var procs = Process.GetProcessesByName("Remotely_Agent").Concat(Process.GetProcessesByName("Remotely_Desktop"));
+            var procs = Process.GetProcessesByName("Remotely_Agent").Concat(Process.GetProcessesByName("RmFi_Desktop"));
 
             foreach (var proc in procs)
             {
