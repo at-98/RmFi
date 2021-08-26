@@ -244,7 +244,7 @@ You can change the local port that the Remotely .NET server listens on by adding
   }
 ```
 
-Alternatively, you can use a command-line argument for the `Remotely_Server` process or set an environment variable.
+Alternatively, you can use a command-line argument for the `RmFi_Server` process or set an environment variable.
   - `--urls http://localhost:{port-number}`
   - `ASPNETCORE_URLS=http://localhost:{port-number}`
 
