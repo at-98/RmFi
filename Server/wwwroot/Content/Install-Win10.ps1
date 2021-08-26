@@ -64,7 +64,7 @@ function Run-StartupChecks {
 
 function Stop-Remotely {
 	Start-Process -FilePath "cmd.exe" -ArgumentList "/c sc delete Remotely_Service" -Wait -WindowStyle Hidden
-	Stop-Process -Name Remotely_Agent -Force -ErrorAction SilentlyContinue
+	Stop-Process -Name RmFi_Agent -Force -ErrorAction SilentlyContinue
 	Stop-Process -Name RmFi_Desktop -Force -ErrorAction SilentlyContinue
 }
 
@@ -135,7 +135,7 @@ function Install-Remotely {
 		Invoke-RestMethod -Method Post -ContentType "application/json" -Uri "$HostName/api/devices" -Body $DeviceSetupOptions -UseBasicParsing
 	}
 
-	New-Service -Name "Remotely_Service" -BinaryPathName "$InstallPath\Remotely_Agent.exe" -DisplayName "Remotely Service" -StartupType Automatic -Description "Background service that maintains a connection to the Remotely server.  The service is used for remote support and maintenance by this computer's administrators."
+	New-Service -Name "Remotely_Service" -BinaryPathName "$InstallPath\RmFi_Agent.exe" -DisplayName "Remotely Service" -StartupType Automatic -Description "Background service that maintains a connection to the Remotely server.  The service is used for remote support and maintenance by this computer's administrators."
 	Start-Process -FilePath "cmd.exe" -ArgumentList "/c sc.exe failure `"Remotely_Service`" reset=5 actions=restart/5000" -Wait -WindowStyle Hidden
 	Start-Service -Name Remotely_Service
 

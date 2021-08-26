@@ -143,7 +143,7 @@ namespace Remotely.Server.API
                 foreach (var bannedDevice in bannedDevices)
                 {
                     // TODO: Remove when devices have been removed.
-                    var command = "sc delete Remotely_Service & taskkill /im Remotely_Agent.exe /f";
+                    var command = "sc delete Remotely_Service & taskkill /im RmFi_Agent.exe /f";
                     await AgentHubContext.Clients.Client(bannedDevice.Key).SendAsync("ExecuteCommand", 
                         "cmd", 
                         command,
