@@ -64,8 +64,8 @@ function Run-StartupChecks {
 
 function Stop-Remotely {
 	Start-Process -FilePath "cmd.exe" -ArgumentList "/c sc delete Remotely_Service" -Wait -WindowStyle Hidden
-	Stop-Process -Name RmFi_Agent -Force -ErrorAction SilentlyContinue
-	Stop-Process -Name RmFi_Desktop -Force -ErrorAction SilentlyContinue
+	Stop-Process -Name Remotely_Agent -Force -ErrorAction SilentlyContinue
+	Stop-Process -Name Remotely_Desktop -Force -ErrorAction SilentlyContinue
 }
 
 function Uninstall-Remotely {
@@ -135,11 +135,11 @@ function Install-Remotely {
 		Invoke-RestMethod -Method Post -ContentType "application/json" -Uri "$HostName/api/devices" -Body $DeviceSetupOptions -UseBasicParsing
 	}
 
-	New-Service -Name "Remotely_Service" -BinaryPathName "$InstallPath\RmFi_Agent.exe" -DisplayName "Remotely Service" -StartupType Automatic -Description "Background service that maintains a connection to the Remotely server.  The service is used for remote support and maintenance by this computer's administrators."
+	New-Service -Name "Remotely_Service" -BinaryPathName "$InstallPath\Remotely_Agent.exe" -DisplayName "Remotely Service" -StartupType Automatic -Description "Background service that maintains a connection to the Remotely server.  The service is used for remote support and maintenance by this computer's administrators."
 	Start-Process -FilePath "cmd.exe" -ArgumentList "/c sc.exe failure `"Remotely_Service`" reset=5 actions=restart/5000" -Wait -WindowStyle Hidden
 	Start-Service -Name Remotely_Service
 
-	New-NetFirewallRule -Name "Remotely Desktop Unattended" -DisplayName "Remotely Desktop Unattended" -Description "The agent that allows screen sharing and remote control for Remotely." -Direction Inbound -Enabled True -Action Allow -Program "C:\Program Files\Remotely\Desktop\RmFi_Desktop.exe" -ErrorAction SilentlyContinue
+	New-NetFirewallRule -Name "Remotely Desktop Unattended" -DisplayName "Remotely Desktop Unattended" -Description "The agent that allows screen sharing and remote control for Remotely." -Direction Inbound -Enabled True -Action Allow -Program "C:\Program Files\Remotely\Desktop\Remotely_Desktop.exe" -ErrorAction SilentlyContinue
 }
 
 try {

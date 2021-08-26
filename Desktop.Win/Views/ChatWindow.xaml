@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Remotely.Desktop.Win.Views"
         xmlns:ViewModels="clr-namespace:Remotely.Desktop.Win.ViewModels"
-        xmlns:Models="clr-namespace:Remotely.Shared.Models;assembly=RmFi_Shared"
+        xmlns:Models="clr-namespace:Remotely.Shared.Models;assembly=Remotely_Shared"
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="CanResizeWithGrip"

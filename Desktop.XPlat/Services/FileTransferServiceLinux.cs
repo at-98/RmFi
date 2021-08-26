@@ -32,7 +32,7 @@ namespace Remotely.Desktop.XPlat.Services
                 return desktopDir;
             }
 
-            return Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "RmFi_Shared")).FullName;
+            return Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "Remotely_Shared")).FullName;
         }
 
         public void OpenFileTransferWindow(Viewer viewer)
