@@ -53,7 +53,7 @@ yum -y install libgdiplus
 # Set permissions on Remotely files.
 setfacl -R -m u:apache:rwx $AppRoot
 chown -R apache:apache $AppRoot
-chmod +x "$AppRoot/RmFi_Server"
+chmod +x "$AppRoot/Remotely_Server"
 
 
 # Install Nginx
@@ -128,7 +128,7 @@ Description=Remotely Server
 
 [Service]
 WorkingDirectory=$AppRoot
-ExecStart=/usr/bin/dotnet $AppRoot/RmFi_Server.dll
+ExecStart=/usr/bin/dotnet $AppRoot/Remotely_Server.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
